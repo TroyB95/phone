@@ -7,6 +7,8 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+
+  font-family: "Ubuntu Mono", monospace;
 }
 
 * {
@@ -45,8 +47,8 @@ body {
 
   background: white;
 
-  opacity:0;
-  transition:opacity .1s linear;
+  opacity: 0;
+  transition: opacity 0.1s linear;
 
   &.active {
     opacity: 1;
@@ -66,12 +68,10 @@ body {
   position: absolute;
   top: 35px;
 
-
   display: block;
 
   &.active {
     display: none;
-
   }
 }
 
@@ -85,7 +85,6 @@ body {
 
   z-index: 999;
 
-
   div {
     margin: 0 5px;
     margin-top: 4px;
@@ -93,8 +92,6 @@ body {
     z-index: 999;
   }
 }
-
-
 
 .phone-screen__topbar__icon {
   width: 20px;
@@ -112,17 +109,16 @@ body {
   width: 45px;
   height: 45px;
 
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &.scaled {
-
     transform: scale(2, 2);
     transform-origin: top left;
   }
 }
 
 .phone-screen-content__app__page {
-  background: red;
+  background: white;
 
   height: 40px;
   width: 40px;
@@ -136,17 +132,13 @@ body {
 
   position: absolute;
 
-
-  transform: scale(.7, .7);
+  transform: scale(0.7, 0.7);
 
   opacity: 0;
 
-  transition: all .3s linear;
-
-
+  transition: all 0.3s linear;
 
   &.scaled {
-
     left: 361px;
     top: 35px;
 
@@ -158,8 +150,6 @@ body {
 
     opacity: 1;
   }
-
-
 }
 
 .phone-screen-content__app__page__close-btn {
@@ -177,16 +167,20 @@ body {
 .contact-user-content {
   width: 100%;
   height: 350px;
+
+  text-align: center;
 }
 
 .contact-user-photo {
   width: 125px;
   height: 125px;
 
-  position: relative;
-  top: 30px;
-  left: 26.5px;
-  
+  padding-top: 20px;
+}
+
+.contact-user__icon {
+  width: 50px;
+  height: 50px;
 }
 
 .phone-body__power-button {
@@ -211,30 +205,44 @@ body {
   height: 38px;
 }
 
-
-
 .pt-page-scaleDown {
-	-webkit-animation: scaleDown .7s ease both;
-	animation: scaleDown .7s ease both;
+  -webkit-animation: scaleDown 0.7s ease both;
+  animation: scaleDown 0.7s ease both;
 }
 
 .pt-page-scaleUp {
-	-webkit-animation: scaleUp .7s ease both;
-	animation: scaleUp .7s ease both;
+  -webkit-animation: scaleUp 0.7s ease both;
+  animation: scaleUp 0.7s ease both;
 }
 
 @-webkit-keyframes scaleDown {
-	from { }
-	to { opacity: 0; -webkit-transform: scale(.8); }
+  from {
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+  }
 }
 @keyframes scaleDown {
-	from { }
-	to { opacity: 0; -webkit-transform: scale(.8); transform: scale(.8); }
+  from {
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
 }
 
 @-webkit-keyframes scaleUp {
-	from { opacity: 0; -webkit-transform: scale(.8); }
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+  }
 }
 @keyframes scaleUp {
-	from { opacity: 0; -webkit-transform: scale(.8); transform: scale(.8); }
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
 }

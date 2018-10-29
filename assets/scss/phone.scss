@@ -50,6 +50,8 @@ body {
   opacity: 0;
   transition: opacity 0.1s linear;
 
+  overflow: hidden;
+
   &.active {
     opacity: 1;
   }
@@ -100,7 +102,8 @@ body {
 
 .phone-screen-content {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 
   margin-top: 10px;
 }
@@ -109,11 +112,24 @@ body {
   width: 45px;
   height: 45px;
 
+  margin: 4px 7px;
+
   transition: all 0.3s ease-in-out;
 
   &.scaled {
     transform: scale(2, 2);
+  }
+
+  &.scaled-t-r {
+    transform-origin: top right;
+  }
+
+  &.scaled-t-l {
     transform-origin: top left;
+  }
+
+  &.scaled-t {
+    transform-origin: top;
   }
 }
 
@@ -122,8 +138,6 @@ body {
 
   height: 40px;
   width: 40px;
-
-  border: 1px solid black;
 
   z-index: -20;
 
@@ -136,14 +150,20 @@ body {
 
   opacity: 0;
 
-  transition: all 0.3s linear;
+  transition: all 0.25s ease-in;
+
+  overflow: hidden;
+
+  &.scroll {
+    overflow: scroll;
+  }
 
   &.scaled {
     left: 361px;
-    top: 35px;
+    top: 37px;
 
-    height: 365px;
-    width: 180px;
+    height: 363px;
+    width: 178px;
     transform: scale(1, 1);
 
     z-index: 10;
@@ -203,6 +223,77 @@ body {
   height: 60px;
 
   margin: 6px 6px;
+}
+
+.about-content {
+  h4 {
+    padding-left: 3px;
+
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  tr {
+    border-top: 1px solid rgba(128, 128, 128, 0.637);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.637);
+  }
+
+  th {
+    width: 45px;
+    height: 36px;
+
+    padding-left: 3px;
+
+    text-align: left;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  th:nth-child(2) {
+    text-align: right;
+    font-size: 12px;
+
+    width: 107px;
+
+    padding-right: 3px;
+  }
+}
+
+.calc-content {
+  .calc-content-buttons {
+    h4 {
+      margin-top: 16px;
+      margin-bottom: 36px;
+    }
+
+    .calc-content-answer-area {
+      font-size: 16px;
+
+      padding: 12px 0;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th {
+      width: 45px;
+      height: 45px;
+
+      border: 1px solid black;
+    }
+
+    tr:first-of-type {
+      th {
+        border: 0;
+      }
+    }
+  }
 }
 
 .phone-body__power-button {

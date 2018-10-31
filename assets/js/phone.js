@@ -3,6 +3,7 @@ phone = {
     this.powerOn();
     this.iconExpand();
     this.appPageClose();
+    this.calcGetInput();
   },
 
   powerOn: function() {
@@ -48,6 +49,68 @@ phone = {
 
         currentAppPage.classList.remove("scaled");
         currentAppIcon.classList.remove("scaled");
+      });
+    });
+  },
+
+  calcGetInput: function() {
+    let calcInputs = document.querySelectorAll(".calc-button");
+    let displayArea = document.querySelector(".calc-content-answer-area");
+    let currentValue = "";
+    let selected = "";
+    let mathSymbol;
+
+    let mathMethod = {
+      "+": function(x, y) {
+        return x + y;
+      },
+      "-": function(x, y) {
+        return x - y;
+      },
+      "*": function(x, y) {
+        return x * y;
+      },
+      "/": function(x, y) {
+        return x / y;
+      }
+    };
+
+    calcInputs.forEach(function(input) {
+      input.addEventListener("click", function() {
+        let inputted = input.dataset.selector;
+        displayArea.innerHTML = currentValue;
+
+        if (inputted === "reset") {
+          currentValue = "";
+          selected = "";
+          displayArea.innerHTML = currentValue;
+        } else if (currentValue === "") {
+          currentValue = Number(inputted);
+          displayArea.innerHTML = currentValue;
+          console.log("0");
+        } else if (inputted !== "+" && inputted !== "-" && inputted !== "/" && inputted !== "*") {
+          selected += inputted;
+          displayArea.innerHTML = selected;
+          let numSelected = Number(selected);
+          currentValue = mathMethod[mathSymbol](currentValue, numSelected);
+          displayArea.innerHTML = currentValue;
+          selected = "";
+          console.log("1");
+        } else if (
+          (inputted === "+" || inputted === "-" || inputted === "/" || inputted === "*") &&
+          selected === ""
+        ) {
+          console.log("or and working");
+          mathSymbol = inputted;
+          console.log(mathSymbol);
+        } else {
+          let numSelected = Number(selected);
+          currentValue = mathMethod[inputted](currentValue, numSelected);
+          displayArea.innerHTML = currentValue;
+          selected = "";
+          console.log(currentValue);
+          console.log("2");
+        }
       });
     });
   }

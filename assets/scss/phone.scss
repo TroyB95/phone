@@ -277,6 +277,22 @@ body {
       padding: 12px 0;
     }
 
+    .calc-button {
+      background: rgba(170, 170, 170, 0.644);
+    }
+
+    .calc-button:active {
+      background: rgba(102, 102, 102, 0.644);
+    }
+
+    .method {
+      background: rgba(255, 37, 37, 0.644);
+    }
+
+    .method:active {
+      background: rgba(150, 6, 6, 0.952);
+    }
+
     table {
       border-collapse: collapse;
     }

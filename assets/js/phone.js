@@ -58,7 +58,7 @@ phone = {
     let displayArea = document.querySelector(".calc-content-answer-area");
     let currentValue = "";
     let selected = "";
-    let mathSymbol;
+    let mathSymbol = "";
 
     let mathMethod = {
       "+": function(x, y) {
@@ -78,34 +78,60 @@ phone = {
     calcInputs.forEach(function(input) {
       input.addEventListener("click", function() {
         let inputted = input.dataset.selector;
-        displayArea.innerHTML = currentValue;
 
         if (inputted === "reset") {
           currentValue = "";
           selected = "";
-          displayArea.innerHTML = currentValue;
-        } else if (currentValue === "") {
+          mathSymbol = "";
+          displayArea.innerHTML = "- - - - - - -";
+        } else if (
+          currentValue === "" &&
+          inputted !== "=" &&
+          inputted !== "+" &&
+          inputted !== "-" &&
+          inputted !== "/" &&
+          inputted !== "*"
+        ) {
           currentValue = Number(inputted);
           displayArea.innerHTML = currentValue;
-          console.log("0");
-        } else if (inputted !== "+" && inputted !== "-" && inputted !== "/" && inputted !== "*") {
-          selected += inputted;
-          displayArea.innerHTML = selected;
-          let numSelected = Number(selected);
-          currentValue = mathMethod[mathSymbol](currentValue, numSelected);
-          displayArea.innerHTML = currentValue;
-          selected = "";
-          console.log("1");
         } else if (
           (inputted === "+" || inputted === "-" || inputted === "/" || inputted === "*") &&
-          selected === ""
+          selected === "" &&
+          currentValue !== ""
         ) {
-          console.log("or and working");
           mathSymbol = inputted;
-          console.log(mathSymbol);
-        } else {
+          console.log("Maths symbol set", mathSymbol);
+          displayArea.innerHTML = mathSymbol;
+        } else if (
+          mathSymbol === "" &&
+          inputted !== "=" &&
+          inputted !== "+" &&
+          inputted !== "-" &&
+          inputted !== "/" &&
+          inputted !== "*" &&
+          (currentValue.length < 12 || currentValue.length === undefined)
+        ) {
+          currentValue += inputted;
+          console.log("Current value is", currentValue);
+          displayArea.innerHTML = currentValue;
+        } else if (
+          inputted !== "+" &&
+          inputted !== "-" &&
+          inputted !== "/" &&
+          inputted !== "*" &&
+          mathSymbol !== "" &&
+          inputted !== "=" &&
+          (selected.length < 12 || selected.length === undefined)
+        ) {
+          selected += inputted;
+          console.log("Selected value is ", selected);
+          displayArea.innerHTML = "";
+          displayArea.innerHTML = selected;
           let numSelected = Number(selected);
-          currentValue = mathMethod[inputted](currentValue, numSelected);
+        } else if (inputted === "=" && mathSymbol !== "") {
+          console.log("last function firing");
+          let numSelected = Number(selected);
+          currentValue = mathMethod[mathSymbol](currentValue, numSelected);
           displayArea.innerHTML = currentValue;
           selected = "";
           console.log(currentValue);

@@ -179,6 +179,18 @@ body {
   font-size: 16px;
   padding: 12px 0; }
 
+.calc-content .calc-content-buttons .calc-button {
+  background: rgba(170, 170, 170, 0.644); }
+
+.calc-content .calc-content-buttons .calc-button:active {
+  background: rgba(102, 102, 102, 0.644); }
+
+.calc-content .calc-content-buttons .method {
+  background: rgba(255, 37, 37, 0.644); }
+
+.calc-content .calc-content-buttons .method:active {
+  background: rgba(150, 6, 6, 0.952); }
+
 .calc-content .calc-content-buttons table {
   border-collapse: collapse; }
 

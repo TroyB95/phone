@@ -3,7 +3,8 @@ phone = {
     this.powerOn();
     this.iconExpand();
     this.appPageClose();
-    this.calcGetInput();
+    this.calcFunctions();
+    this.projectsPageSwap();
   },
 
   powerOn: function() {
@@ -53,7 +54,7 @@ phone = {
     });
   },
 
-  calcGetInput: function() {
+  calcFunctions: function() {
     let calcInputs = document.querySelectorAll(".calc-button");
     let displayArea = document.querySelector(".calc-content-answer-area");
     let currentValue = "";
@@ -137,6 +138,22 @@ phone = {
           console.log(currentValue);
           console.log("2");
         }
+      });
+    });
+  },
+
+  projectsPageSwap: function() {
+    let projectPages = [...document.querySelectorAll(".projects-content-page")];
+    let pageSelectors = [...document.querySelectorAll(".projects-content-selector__button")];
+
+    pageSelectors.forEach(function(selector) {
+      selector.addEventListener("click", function() {
+        projectPages.forEach(function(page) {
+          page.classList.remove("active");
+        });
+
+        let pageNumber = projectPages.filter(page => page.dataset.page === selector.dataset.pageSelector);
+        pageNumber[0].classList.add("active");
       });
     });
   }

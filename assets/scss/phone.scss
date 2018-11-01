@@ -312,6 +312,91 @@ body {
   }
 }
 
+.projects-content {
+  width: 100%;
+  height: 350px;
+
+  text-align: center;
+
+  h4 {
+    font-size: 1.75em;
+
+    margin-top: 0px;
+    margin-bottom: 12px;
+  }
+}
+
+.projects-content-page {
+  background: #75b9be;
+
+  width: 100%;
+  height: 283px;
+
+  position: absolute;
+  display: none;
+
+  font-size: 11px;
+
+  overflow: scroll;
+
+  h4 {
+    margin: 5px 10px;
+  }
+
+  p {
+    margin: 10px 10px;
+  }
+
+  a {
+    padding-bottom: 12px;
+  }
+
+  li {
+    text-align: left;
+  }
+
+  &.active {
+    display: block;
+  }
+}
+
+.projects-content-page:nth-of-type(2) {
+  background: #f9b5ac;
+}
+
+.projects-content-page:nth-of-type(3) {
+  background: #dcc48e;
+}
+
+.projects-content-selector {
+  width: 100%;
+  height: 20px;
+
+  position: absolute;
+
+  top: 343px;
+
+  display: flex;
+}
+
+.projects-content-selector__button {
+  background: #75b9be;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+}
+
+.projects-content-selector__button:nth-child(2) {
+  background: #f9b5ac;
+}
+
+.projects-content-selector__button:nth-child(3) {
+  background: #dcc48e;
+}
+
 .phone-body__power-button {
   width: 40px;
   height: 40px;
